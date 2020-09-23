@@ -1,0 +1,1289 @@
+  [1m[35m (114.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6887174015623767180)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAlbums (20180524190140)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "year" character varying, "record_condition" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180524190140_create_albums.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524190140"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateArtists (20180524190158)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180524190158_create_artists.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524190158"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddThumbnailToAlbums (20180524190349)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "albums" ADD "thumbnail" character varying[0m
+  ↳ db/migrate/20180524190349_add_thumbnail_to_albums.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524190349"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCategorizations (20180524191259)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "categorizations" ("id" bigserial primary key, "source_id" integer, "source_type" character varying, "category_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180524191259_create_categorizations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524191259"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCategories (20180524191413)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180524191413_create_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524191413"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateConditions (20180524194505)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "conditions" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20180524194505_create_conditions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524194505"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddConditionIdToAlbum (20180524194648)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "albums" ADD "condition_id" integer[0m
+  ↳ db/migrate/20180524194648_add_condition_id_to_album.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180524194648"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-02 20:35:02.682155"], ["updated_at", "2020-07-02 20:35:02.682155"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6887174015623767180)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2020-07-02 13:35:26 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Library/Ruby/Gems/2.6.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (8.1ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  Rendered albums/index.html.erb within layouts/application (229.8ms)
+Completed 200 OK in 2742ms (Views: 2598.9ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2020-07-02 13:35:37 -0700
+Processing by AlbumsController#new as HTML
+  Rendering albums/new.html.erb within layouts/application
+  [1m[36mArtist Load (4.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/views/albums/_form.html.erb:31
+  [1m[36mCategory Load (5.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[36mCondition Load (4.3ms)[0m  [1m[34mSELECT "conditions".* FROM "conditions"[0m
+  ↳ app/views/albums/_form.html.erb:56
+  Rendered albums/_form.html.erb (88.7ms)
+  Rendered albums/new.html.erb within layouts/application (90.2ms)
+Completed 200 OK in 134ms (Views: 102.4ms | ActiveRecord: 24.5ms)
+
+
+Started GET "/albums.csv" for 127.0.0.1 at 2020-07-02 13:38:36 -0700
+Processing by AlbumsController#index as CSV
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/models/album.rb:29
+  Rendering text template
+  Rendered text template (0.0ms)
+Sent data albums-1593722316.csv (18.7ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 13:38:51 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:38:57 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  Rendered albums/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:38:59 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  Rendered albums/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 13:39:08 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2020-07-02 13:39:09 -0700
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:19
+  Rendered categories/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/conditions" for 127.0.0.1 at 2020-07-02 13:39:11 -0700
+Processing by ConditionsController#index as HTML
+  Rendering conditions/index.html.erb within layouts/application
+  [1m[36mCondition Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "conditions".* FROM "conditions" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/conditions/index.html.erb:19
+  Rendered conditions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/conditions/new" for 127.0.0.1 at 2020-07-02 13:39:13 -0700
+Processing by ConditionsController#new as HTML
+  Rendering conditions/new.html.erb within layouts/application
+  Rendered conditions/_form.html.erb (1.2ms)
+  Rendered conditions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 36ms (Views: 31.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/conditions" for 127.0.0.1 at 2020-07-02 13:39:18 -0700
+Processing by ConditionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HUwmXgpEcicyXFz88uQmSmzTBilxXKj8zPImBqd02tjWTpj/X2/hU03tPJ1Ok/PFfA4ovS4AK0kL2F7C0GoTNA==", "condition"=>{"name"=>"Used"}, "commit"=>"Create Condition"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[36mCondition Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "conditions" WHERE "conditions"."name" = $1 LIMIT $2[0m  [["name", "Used"], ["LIMIT", 1]]
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[36mCondition Create (0.5ms)[0m  [1m[32mINSERT INTO "conditions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Used"], ["created_at", "2020-07-02 20:39:18.258691"], ["updated_at", "2020-07-02 20:39:18.258691"]]
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/conditions_controller.rb:31
+Redirected to http://localhost:3000/conditions/1
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/conditions/1" for 127.0.0.1 at 2020-07-02 13:39:18 -0700
+Processing by ConditionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCondition Load (0.8ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/conditions_controller.rb:68
+  Rendering conditions/show.html.erb within layouts/application
+  Rendered conditions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 77ms (Views: 57.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/conditions" for 127.0.0.1 at 2020-07-02 13:39:25 -0700
+Processing by ConditionsController#index as HTML
+  Rendering conditions/index.html.erb within layouts/application
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  DISTINCT "conditions".* FROM "conditions" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/conditions/index.html.erb:19
+  Rendered conditions/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/conditions/new" for 127.0.0.1 at 2020-07-02 13:39:26 -0700
+Processing by ConditionsController#new as HTML
+  Rendering conditions/new.html.erb within layouts/application
+  Rendered conditions/_form.html.erb (1.3ms)
+  Rendered conditions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 31ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/conditions" for 127.0.0.1 at 2020-07-02 13:39:29 -0700
+Processing by ConditionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EPIOTHzWqfYwAmGSF1hUPkx0fuXfWcy4B8pfvTxiXADb8LDtKf06gk+zAfOrL4GxXKlQcYAFTw3A4Cd5S3yV7A==", "condition"=>{"name"=>"New"}, "commit"=>"Create Condition"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[36mCondition Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "conditions" WHERE "conditions"."name" = $1 LIMIT $2[0m  [["name", "New"], ["LIMIT", 1]]
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[36mCondition Create (0.2ms)[0m  [1m[32mINSERT INTO "conditions" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "New"], ["created_at", "2020-07-02 20:39:29.649025"], ["updated_at", "2020-07-02 20:39:29.649025"]]
+  ↳ app/controllers/conditions_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/conditions_controller.rb:31
+Redirected to http://localhost:3000/conditions/2
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/conditions/2" for 127.0.0.1 at 2020-07-02 13:39:29 -0700
+Processing by ConditionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/conditions_controller.rb:68
+  Rendering conditions/show.html.erb within layouts/application
+  Rendered conditions/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2020-07-02 13:39:33 -0700
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:19
+  Rendered categories/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2020-07-02 13:39:34 -0700
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (1.1ms)
+  Rendered categories/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2020-07-02 13:39:38 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BMrc5Ub7IitK9GKds7EN57GHIRsITDeym6/ypXsx1JknIld3BwwWiw0s4QRAH7PJ2SQqI/6fisTpzlm39cAB8Q==", "category"=>{"title"=>"Rock"}, "commit"=>"Create Category"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = $1 LIMIT $2[0m  [["title", "Rock"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Rock"], ["created_at", "2020-07-02 20:39:38.404729"], ["updated_at", "2020-07-02 20:39:38.404729"]]
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:31
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2020-07-02 13:39:38 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:68
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2020-07-02 13:39:40 -0700
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:19
+  Rendered categories/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2020-07-02 13:39:41 -0700
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (1.0ms)
+  Rendered categories/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2020-07-02 13:39:45 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gbrKlGVuGKArmjCh9PWGpTy31AheWfHc0IJswKTpePeiUkEGJJksAGxCszgHWziLVBTfMKiKTKqi48fSKhitnw==", "category"=>{"title"=>"KPop"}, "commit"=>"Create Category"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[36mCategory Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = $1 LIMIT $2[0m  [["title", "KPop"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "KPop"], ["created_at", "2020-07-02 20:39:45.276306"], ["updated_at", "2020-07-02 20:39:45.276306"]]
+  ↳ app/controllers/categories_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:31
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2020-07-02 13:39:45 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:68
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 13:39:47 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2020-07-02 13:39:48 -0700
+Processing by ArtistsController#new as HTML
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (1.5ms)
+  Rendered artists/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 42ms (Views: 36.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2020-07-02 13:39:52 -0700
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t0aPc6NGBod0azVuZSZJWvEAh6htIScWvwms4k2bSK3i4ae8Qx5cjV49uScbmABQXZPPIbvFU58CXpqXubba9Q==", "artist"=>{"name"=>"Queen"}, "commit"=>"Create Artist"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[36mArtist Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artists" WHERE "artists"."name" = $1 LIMIT $2[0m  [["name", "Queen"], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[36mArtist Create (0.4ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Queen"], ["created_at", "2020-07-02 20:39:52.718829"], ["updated_at", "2020-07-02 20:39:52.718829"]]
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/artists_controller.rb:31
+Redirected to http://localhost:3000/artists/1
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/artists/1" for 127.0.0.1 at 2020-07-02 13:39:52 -0700
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:68
+  Rendering artists/show.html.erb within layouts/application
+  Rendered artists/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 13:39:57 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists/new" for 127.0.0.1 at 2020-07-02 13:39:58 -0700
+Processing by ArtistsController#new as HTML
+  Rendering artists/new.html.erb within layouts/application
+  Rendered artists/_form.html.erb (1.0ms)
+  Rendered artists/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/artists" for 127.0.0.1 at 2020-07-02 13:40:03 -0700
+Processing by ArtistsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSsYyOAXUujrSZcnzsFmy3LNswV6NZZCnebMqn1sioIUjDAHAE8I4sEfG26wfy/B3l77jKzR4ssgsfrfiUEY2g==", "artist"=>{"name"=>"Systar"}, "commit"=>"Create Artist"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[36mArtist Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "artists" WHERE "artists"."name" = $1 LIMIT $2[0m  [["name", "Systar"], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[36mArtist Create (0.2ms)[0m  [1m[32mINSERT INTO "artists" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Systar"], ["created_at", "2020-07-02 20:40:03.402816"], ["updated_at", "2020-07-02 20:40:03.402816"]]
+  ↳ app/controllers/artists_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/artists_controller.rb:31
+Redirected to http://localhost:3000/artists/2
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/artists/2" for 127.0.0.1 at 2020-07-02 13:40:03 -0700
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:68
+  Rendering artists/show.html.erb within layouts/application
+  Rendered artists/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:40:06 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  Rendered albums/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2020-07-02 13:40:08 -0700
+Processing by AlbumsController#new as HTML
+  Rendering albums/new.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/views/albums/_form.html.erb:31
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT "conditions".* FROM "conditions"[0m
+  ↳ app/views/albums/_form.html.erb:56
+  Rendered albums/_form.html.erb (5.0ms)
+  Rendered albums/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2020-07-02 13:41:56 -0700
+Processing by AlbumsController#new as HTML
+  Rendering albums/new.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/views/albums/_form.html.erb:31
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT "conditions".* FROM "conditions"[0m
+  ↳ app/views/albums/_form.html.erb:56
+  Rendered albums/_form.html.erb (7.2ms)
+  Rendered albums/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 67ms (Views: 64.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/albums" for 127.0.0.1 at 2020-07-02 13:43:19 -0700
+Processing by AlbumsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S+DnF1V9dzrRciAciJIQg/vPQtV3fXFPRWrfKZTQ1yOZgEOPi8G9UQ2zUS8y3lNKvm5yavX6oXctaXpFH3e4YQ==", "album"=>{"title"=>"Tim's House", "artist_id"=>"1", "category_ids"=>"1", "year"=>"2019", "condition_id"=>"1", "thumbnail"=>#<ActionDispatch::Http::UploadedFile:0x00007fa7bf0906f0 @tempfile=#<Tempfile:/var/folders/g5/7w89b41n49d97hcdgj4hw_xc0000gp/T/RackMultipart20200702-28255-1txlwpd.jpeg>, @original_filename="0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"album[thumbnail]\"; filename=\"0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Album"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/albums_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[36mCategory Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" WHERE "categories"."title" = $1 AND "categories"."id" != $2 LIMIT $3[0m  [["title", "Rock"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[36mAlbum Create (1.3ms)[0m  [1m[32mINSERT INTO "albums" ("artist_id", "title", "year", "created_at", "updated_at", "thumbnail", "condition_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["artist_id", 1], ["title", "Tim's House"], ["year", "2019"], ["created_at", "2020-07-02 20:43:21.144513"], ["updated_at", "2020-07-02 20:43:21.144513"], ["thumbnail", "0.jpeg"], ["condition_id", 1]]
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[36mCategorization Create (7.3ms)[0m  [1m[32mINSERT INTO "categorizations" ("source_id", "source_type", "category_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["source_id", 1], ["source_type", "Album"], ["category_id", 1], ["created_at", "2020-07-02 20:43:21.147100"], ["updated_at", "2020-07-02 20:43:21.147100"]]
+  ↳ app/controllers/albums_controller.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:40
+Redirected to http://localhost:3000/albums/1
+Completed 302 Found in 1251ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 13:43:21 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:43:23 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:48:50 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (4.0ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (3.0ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (3.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 60ms (Views: 47.9ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 13:49:26 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 13:49:32 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (9.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 52ms (Views: 36.8ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/albums/1/edit" for 127.0.0.1 at 2020-07-02 13:49:36 -0700
+Processing by AlbumsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/edit.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/views/albums/_form.html.erb:31
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "categories"."id" FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2[0m  [["source_id", 1], ["source_type", "Album"]]
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[36mCondition Load (0.4ms)[0m  [1m[34mSELECT "conditions".* FROM "conditions"[0m
+  ↳ app/views/albums/_form.html.erb:56
+  Rendered albums/_form.html.erb (6.7ms)
+  Rendered albums/edit.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/albums/1" for 127.0.0.1 at 2020-07-02 13:49:43 -0700
+Processing by AlbumsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9CC6DcvGq8jTsNZdtqkh0s0Qb7eBGkFrXao6jNqGnmkb910ZLjuF5RSBsDVZcpwCVx/RjIFibH5bwKFNLRV2/Q==", "album"=>{"title"=>"Tim's House", "artist_id"=>"1", "category_ids"=>"1", "year"=>"2018", "condition_id"=>"1"}, "commit"=>"Update Album", "id"=>"1"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2[0m  [["source_id", 1], ["source_type", "Album"]]
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[36mAlbum Update (2.0ms)[0m  [1m[33mUPDATE "albums" SET "year" = $1, "updated_at" = $2 WHERE "albums"."id" = $3[0m  [["year", "2018"], ["updated_at", "2020-07-02 20:49:43.015244"], ["id", 1]]
+  ↳ app/controllers/albums_controller.rb:54
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:54
+Redirected to http://localhost:3000/albums/1
+Completed 302 Found in 16ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 13:49:43 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.3ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 42ms (Views: 39.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:49:49 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:51:29 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 59ms (Views: 57.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:51:32 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:54:34 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 199ms (Views: 196.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 13:54:42 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (2.5ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 66ms (Views: 59.6ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 13:55:55 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:03:06 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (2.6ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (1.6ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 200ms (Views: 192.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:10:33 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (2.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (1.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (1.3ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 167ms (Views: 161.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 14:10:42 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 45ms (Views: 39.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:18:58 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (8.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (5.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (5.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (32.6ms)
+Completed 200 OK in 244ms (Views: 223.6ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:20:15 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 97ms (Views: 93.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:41 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 89ms (Views: 87.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:41 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 58ms (Views: 56.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 39ms (Views: 36.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:23:43 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (5.6ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (1.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.9ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 125ms (Views: 115.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:00 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (1.5ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.6ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:01 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 63ms (Views: 61.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:01 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:01 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:01 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 44ms (Views: 41.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:36 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:36 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:25:36 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 35ms (Views: 33.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:26:22 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:26:22 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 39ms (Views: 37.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:26:22 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:26:23 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:27:17 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 81ms (Views: 79.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:28:23 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:29:54 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:31:04 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 84ms (Views: 82.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:32:36 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 87ms (Views: 85.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:32:42 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 77ms (Views: 75.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:33:43 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 59ms (Views: 54.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:33:53 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:34:05 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:34:27 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:34:30 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (1.2ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 63ms (Views: 60.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 14:34:32 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-07-02 14:36:19 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "artists".* FROM "artists" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/artists/1" for 127.0.0.1 at 2020-07-02 14:36:25 -0700
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:68
+  Rendering artists/show.html.erb within layouts/application
+  Rendered artists/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:36:30 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 44ms (Views: 42.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums/1" for 127.0.0.1 at 2020-07-02 14:36:33 -0700
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:77
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:8
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCategory Load (2.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" INNER JOIN "categorizations" ON "categories"."id" = "categorizations"."category_id" WHERE "categorizations"."source_id" = $1 AND "categorizations"."source_type" = $2 ORDER BY "categories"."id" ASC LIMIT $3[0m  [["source_id", 1], ["source_type", "Album"], ["LIMIT", 1]]
+  ↳ app/models/album.rb:22
+  Rendered albums/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:36:37 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 42ms (Views: 40.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums/new" for 127.0.0.1 at 2020-07-02 14:36:44 -0700
+Processing by AlbumsController#new as HTML
+  Rendering albums/new.html.erb within layouts/application
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/views/albums/_form.html.erb:31
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/albums/_form.html.erb:39
+  [1m[36mCondition Load (0.2ms)[0m  [1m[34mSELECT "conditions".* FROM "conditions"[0m
+  ↳ app/views/albums/_form.html.erb:56
+  Rendered albums/_form.html.erb (6.0ms)
+  Rendered albums/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/albums" for 127.0.0.1 at 2020-07-02 14:37:05 -0700
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/albums?utf8=%E2%9C%93&q%5Btitle_cont%5D=tim&q%5Bartist_name_cont%5D=&commit=Search" for 127.0.0.1 at 2020-07-02 14:37:14 -0700
+Processing by AlbumsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"title_cont"=>"tim", "artist_name_cont"=>""}, "commit"=>"Search"}
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (18.5ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" WHERE "albums"."title" ILIKE '%tim%' LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 110ms (Views: 57.2ms | ActiveRecord: 50.6ms)
+
+
+Started GET "/albums?utf8=%E2%9C%93&q%5Btitle_cont%5D=la&q%5Bartist_name_cont%5D=&commit=Search" for 127.0.0.1 at 2020-07-02 14:37:19 -0700
+Processing by AlbumsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"title_cont"=>"la", "artist_name_cont"=>""}, "commit"=>"Search"}
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" WHERE "albums"."title" ILIKE '%la%' LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  Rendered albums/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/albums?utf8=%E2%9C%93&q%5Btitle_cont%5D=tim&q%5Bartist_name_cont%5D=&commit=Search" for 127.0.0.1 at 2020-07-02 14:37:23 -0700
+Processing by AlbumsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"title_cont"=>"tim", "artist_name_cont"=>""}, "commit"=>"Search"}
+  Rendering albums/index.html.erb within layouts/application
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" WHERE "albums"."title" ILIKE '%tim%' LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:51
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:14
+  [1m[36mCondition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.6ms)
+
+
