@@ -5153,3 +5153,67 @@ Processing by AlbumsController#index as HTML
 Completed 200 OK in 5365ms (Views: 4428.4ms | ActiveRecord: 79.9ms)
 
 
+Started GET "/" for 127.0.0.1 at 2020-09-25 00:11:40 -0700
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#index as HTML
+  Rendering albums/index.html.erb within layouts/application
+  [1m[35mSQL (9.2ms)[0m  [1m[34mSELECT  DISTINCT "albums"."id" AS t0_r0, "albums"."artist_id" AS t0_r1, "albums"."title" AS t0_r2, "albums"."year" AS t0_r3, "albums"."record_condition" AS t0_r4, "albums"."created_at" AS t0_r5, "albums"."updated_at" AS t0_r6, "albums"."thumbnail" AS t0_r7, "albums"."condition_id" AS t0_r8, "artists"."id" AS t1_r0, "artists"."name" AS t1_r1, "artists"."created_at" AS t1_r2, "artists"."updated_at" AS t1_r3 FROM "albums" INNER JOIN "artists" ON "artists"."id" = "albums"."artist_id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:61
+  [1m[36mCondition Load (4.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (0.7ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (400.2ms)
+Completed 200 OK in 1487ms (Views: 1295.3ms | ActiveRecord: 51.5ms)
+
+
+Started GET "/albums?q%5Bs%5D=artist_name+asc" for 127.0.0.1 at 2020-09-25 00:11:49 -0700
+Processing by AlbumsController#index as HTML
+  Parameters: {"q"=>{"s"=>"artist_name asc"}}
+  Rendering albums/index.html.erb within layouts/application
+  [1m[35mSQL (41.1ms)[0m  [1m[34mSELECT  DISTINCT "albums"."id" AS t0_r0, "albums"."artist_id" AS t0_r1, "albums"."title" AS t0_r2, "albums"."year" AS t0_r3, "albums"."record_condition" AS t0_r4, "albums"."created_at" AS t0_r5, "albums"."updated_at" AS t0_r6, "albums"."thumbnail" AS t0_r7, "albums"."condition_id" AS t0_r8, "artists"."id" AS t1_r0, "artists"."name" AS t1_r1, "artists"."created_at" AS t1_r2, "artists"."updated_at" AS t1_r3 FROM "albums" INNER JOIN "artists" ON "artists"."id" = "albums"."artist_id" ORDER BY "artists"."name" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/albums/index.html.erb:61
+  [1m[36mCondition Load (12.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCACHE Condition Load (0.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (4.2ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (2.1ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered albums/index.html.erb within layouts/application (256.7ms)
+Completed 200 OK in 1425ms (Views: 1333.5ms | ActiveRecord: 59.6ms)
+
+
+Started GET "/artists" for 127.0.0.1 at 2020-09-25 00:11:55 -0700
+Processing by ArtistsController#index as HTML
+  Rendering artists/index.html.erb within layouts/application
+  [1m[35mSQL (1.6ms)[0m  [1m[34mSELECT  DISTINCT "artists"."id" FROM "artists" INNER JOIN "albums" ON "albums"."artist_id" = "artists"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/index.html.erb:21
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT DISTINCT "artists"."id" AS t0_r0, "artists"."name" AS t0_r1, "artists"."created_at" AS t0_r2, "artists"."updated_at" AS t0_r3, "albums"."id" AS t1_r0, "albums"."artist_id" AS t1_r1, "albums"."title" AS t1_r2, "albums"."year" AS t1_r3, "albums"."record_condition" AS t1_r4, "albums"."created_at" AS t1_r5, "albums"."updated_at" AS t1_r6, "albums"."thumbnail" AS t1_r7, "albums"."condition_id" AS t1_r8 FROM "artists" INNER JOIN "albums" ON "albums"."artist_id" = "artists"."id" WHERE "artists"."id" IN ($1, $2, $3)[0m  [["id", 1], ["id", 2], ["id", 8]]
+  ↳ app/views/artists/index.html.erb:21
+  Rendered artists/index.html.erb within layouts/application (115.4ms)
+Completed 200 OK in 692ms (Views: 413.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/artists/1" for 127.0.0.1 at 2020-09-25 00:12:00 -0700
+Processing by ArtistsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArtist Load (2.5ms)[0m  [1m[34mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/artists_controller.rb:74
+  Rendering artists/show.html.erb within layouts/application
+  [1m[36mAlbum Load (2.6ms)[0m  [1m[34mSELECT  DISTINCT "albums".* FROM "albums" LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  ↳ app/views/artists/show.html.erb:58
+  [1m[36mCondition Load (1.3ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  [1m[36mCondition Load (1.3ms)[0m  [1m[34mSELECT  "conditions".* FROM "conditions" WHERE "conditions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/album.rb:18
+  Rendered artists/show.html.erb within layouts/application (120.8ms)
+Completed 200 OK in 2041ms (Views: 898.8ms | ActiveRecord: 9.8ms)
+
+
