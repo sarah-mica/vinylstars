@@ -14,6 +14,8 @@ default: &default
 development:
   <<: *default
   database: vinyl_stars_dev
+  username: fashi
+  password: 'Sheba2218'
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

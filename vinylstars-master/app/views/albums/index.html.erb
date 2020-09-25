@@ -16,12 +16,22 @@
   <%= search_form_for @search, :html => {:class => "form-horizontal album"} do |f| %>
       <div class="form-group">
         <%= f.label :title_cont %>
-        <%= f.search_field :title_cont, placeholder: 'Title cont', :class => 'form-control' %>
+        <%= f.search_field :title_cont, placeholder: 'Ex: "The Best of..", "Classics"', :class => 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :artist_name_cont %>
-        <%= f.search_field :artist_name_cont, placeholder: 'Artist name cont', :class => 'form-control' %>
+        <%= f.search_field :artist_name_cont, placeholder: 'Ex: "Justin", "Boys.."', :class => 'form-control' %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :condition_name, "Condition" %>
+        <%= f.search_field :condition_name, placeholder: 'Ex: "New", "Good"', :class => 'form-control' %>
+      </div>
+
+      <!--<div class="form-group">
+        <#%= f.label :category_name, "Genre" %>
+        <#%= f.search_field :category_name, placeholder: 'Ex: "Pop", "Rock", etc', :class => 'form-control' %>
+      </div> -->
 
       <div class="form-group">
         <%= f.submit 'Search', class: 'btn btn-info' %>
@@ -38,10 +48,10 @@
     <thead>
     <tr>
       <th><%= sort_link @search, :id, model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:artist_id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:year) %></th>
-      <th><%= model_class.human_attribute_name(:record_condition) %></th>
+      <th><%= sort_link @search, :artist_name, model_class.human_attribute_name(:artist_id) %></th>
+      <th><%= sort_link @search, :title, model_class.human_attribute_name(:title) %></th>
+      <th><%= sort_link @search, :year, model_class.human_attribute_name(:year) %></th>
+      <th><%= sort_link @search, :record_condition, model_class.human_attribute_name(:record_condition) %></th>
       <th><%= model_class.human_attribute_name(:thumbnail) %></th>
       <th><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at) %></th>
       <th><%= t '.actions', :default => t("helpers.actions") %></th>

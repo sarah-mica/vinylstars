@@ -5,7 +5,10 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
     @search = Album.ransack(params[:q])
-    @albums = @search.result(distinct: true).page(params[:page])
+    @albums = @search.result(distinct: true)
+                     .includes(:artist)
+                     .joins(:artist)
+                     .page(params[:page])
 
     respond_to do |format|
       format.html {}

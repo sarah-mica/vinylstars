@@ -12,6 +12,7 @@ A sample of collection has been included for seeding purposes. These can be opti
 - Clone this repo
 - `bundle install`
 - `brew install imagemagick` (unfortunately a known issue and dependency that I would otherwise use to build in a bash script for install)
+    - if you are running on Windows, simply download imagemagick here: https://imagemagick.org/script/download.php#windows
 - `createdb vinyl_stars_dev` 
 - `rails db:migrate`
 - `rails db:seed` (optional)

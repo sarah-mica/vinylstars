@@ -11,9 +11,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= sort_link @search, :id, model_class.human_attribute_name(:id) %></th>
+      <th><%= sort_link @search, :name, model_class.human_attribute_name(:name) %></th>
+      <th><%= sort_link @search, :created_at, model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -22,6 +22,7 @@
       <tr>
         <td><%= link_to artist.id, artist_path(artist) %></td>
         <td><%= artist.name %></td>
+
         <td><%=l artist.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),

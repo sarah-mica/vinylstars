@@ -5,12 +5,18 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @search = Artist.ransack(params[:q])
-    @artists = @search.result(distinct: true).page(params[:page])
+    @artists = @search.result(distinct: true)
+                      .includes(:albums)
+                      .joins(:albums)
+                      .page(params[:page])
+
   end
 
   # GET /artists/1
   # GET /artists/1.json
   def show
+    @search = Album.ransack(params[:q])
+    @albums = @search.result(distinct: true).page(params[:page])
   end
 
   # GET /artists/new
